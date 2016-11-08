@@ -2,16 +2,24 @@
 <section class="main">
     <div class="container">
         <div class="content">
-            <div class="page-heading">Blog</div>
-            <ul>
-            {{ range .Data.Pages.ByPublishDate }}
-                {{ if eq .Section "blog" }}
-                    {{ partial "li.html" . }}
-                {{ end }}
-            {{ end }}
-            </ul>
+          {{ range .Data.Pages}}
+            {{if eq .RelPermalink "/about/" }}
+            <div class="page-heading">{{.Title}}</div>
+            <div class="markdown">
+              {{.Content}}
+            </div>
+            {{end}}
+          {{ end }}
+
+          <div class="page-heading">Blog</div>
+          <ul>
+          {{ range .Data.Pages.ByPublishDate }}
+              {{ if eq .Section "blog" }}
+                  {{ partial "li.html" . }}
+              {{ end }}
+          {{ end }}
+          </ul>
         </div>
     </div>
 </section>
 {{ partial "footer.html" . }}
-
