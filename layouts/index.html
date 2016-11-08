@@ -3,7 +3,7 @@
     <div class="container">
         <div class="content">
           {{ range .Data.Pages}}
-            {{ if (eq .RelPermalink "/about/") or (eq .RelPermalink "about/") }}
+            {{ if or (eq .RelPermalink "/about/") (eq .RelPermalink "about/") }}
               <div class="page-heading">{{.Title}}</div>
               <div class="markdown">
                 {{.Content}}
