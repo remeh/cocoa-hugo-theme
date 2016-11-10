@@ -4,4 +4,5 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
-{{ if .Keywords }}<meta name="keywords" content="{{ delimit .Keywords " " }}">{{ end }}
+{{ if .Keywords }}<meta name="keywords" content="{{ delimit .Keywords " " }}">
+{{ else if .Site.Params.keywords }}<meta name="keywords" content="{{ .Site.Params.keywords }}">{{ end }}
