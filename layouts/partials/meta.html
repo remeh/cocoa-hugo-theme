@@ -9,8 +9,13 @@
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:image" content="https://en.gravatar.com/userimage/51722179/0d833a54bae4bf20de1be6cc671b4d2f.jpg?size=300" />
 {{ if .Description }}<meta name="description" content="{{ .Description }}">
-{{ else if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">
-{{ else }}<meta property="og:description" content="Rémy Mathieu — I love to code, create and learn new things. R&D Engineer at Sentryo, former Backend Engineer at Batch and AppGratis. Golang Lyon meetup organizer." />{{ end }}
+<meta name="og:description" content="{{ .Description }}">
+{{ else if .Site.Params.description }}
+<meta name="og:description" content="{{ .Site.Params.description }}">
+<meta name="description" content="{{ .Site.Params.description }}">
+{{ else }}
+<meta property="description" content="Rémy Mathieu — I love to code, create and learn new things. R&D Engineer at Sentryo, former Backend Engineer at Batch and AppGratis. Golang Lyon meetup organizer." />
+<meta property="og:description" content="Rémy Mathieu — I love to code, create and learn new things. R&D Engineer at Sentryo, former Backend Engineer at Batch and AppGratis. Golang Lyon meetup organizer." />{{ end }}
 {{ if .Keywords }}<meta name="keywords" content="{{ delimit .Keywords " " }}">
 {{ else if .Site.Params.keywords }}<meta name="keywords" content="{{ .Site.Params.keywords }}">{{ end }}
 {{ if .Title }}
